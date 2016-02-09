@@ -5,9 +5,10 @@ title: Design Snippets
 <h1>{{site.name}}</h1>
 <h3>Anton Kril</h3>
 <p>Collection of simple truths that help make design decisions. Published here for easy referencing.</p>
-
-<ul>
-{% for post in site.posts %}
-<li>§ {{forloop.rindex}}. <a href="{{post.url}}">{{post.title}}</a></li>
-{% endfor %}
-</ul>
+<nav id="list">
+  <ul>
+  {% for post in site.posts %}
+  <li>§ {{forloop.rindex}}. <a href="{{post.url}}">{{post.title}}</a></li>
+  {% endfor %}
+  </ul>
+</nav>
