@@ -15,7 +15,7 @@ Later MVC was adopted for cilent-server applications and more specifically for H
 
 ![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
-Notice that state modification and state representation happens in one request, which contradicts HTTP. Also Controller does all the communication. View does not observer Model.
+Notice that state modification and state representation both happen in one request. Also Controller does all the communication. View does not observe Model.
 
 Many of those, who followed HTTP rules came up with following communication:
 
@@ -35,7 +35,7 @@ This implementation of MVC is correct:
 
 Last diagram demonstrates that for both MVC and HTTP data modification and data representation are separated. They are both following CQRS (Command Query Responsibility Segregation).
 
-If we apply CQRS further, we will get separate our business operations infrastructure from reporting:
+If we apply CQRS further, we will separate our business operations infrastructure from reporting:
 
 ![CQRS applied to web application](/images/MVC_Server_HTTP_CQRS.png)
 
