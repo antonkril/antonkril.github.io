@@ -13,7 +13,7 @@ Here Action updates Model and View is re-rendered immediately because it observe
 
 Later MVC was adopted for cilent-server applications and more specifically for HTTP. Some of the HTTP implementations were completely wrong: 
 
-![Completely wrong implementation of MVC on server](/images/MVC_Server_Completely_Wrong.png)
+![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
 Notice that state modification and state representation happens in one request, which contradicts HTTP. Also Controller does all the communication. View does not observer Model.
 
