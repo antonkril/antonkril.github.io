@@ -1,6 +1,6 @@
 ---
-layout:post
-title: MVC
+layout: post
+title: MVC, HTTP, CQRS
 ---
 
 MVC (Model-View-Controller) is one of the most well-known and least understood decomposition patterns. 
