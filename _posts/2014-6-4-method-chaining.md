@@ -41,4 +41,4 @@ $items = $collection->addNameFilter('test *')->getItems();
 $filteredItems = $collection->addDateFilter(today())->getItems();
 ```
 
-Example above demonstrates problems with mutable state: a call to `addDateFilter` will not have effect. Client could not know the state of `$collection` at the moment of call to `addDateFilter`. To avoid such situations, all objects must be initialized at creation.
+Example above demonstrates problems with mutable state: second call to `addDateFilter` will not have effect. Client could not know the state of `$collection` at the moment of call to `addDateFilter`. To avoid such situations, all objects must be initialized at creation.
