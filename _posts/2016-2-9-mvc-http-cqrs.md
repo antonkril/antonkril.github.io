@@ -9,7 +9,7 @@ Initially it was used in "fat" client applications. Model, View and Controller i
 
 ![MVC on fat clients](/images/MVC_fat_client.png)
 
-Here Action updates Model and View is re-rendered immediately because it observers the state of the Model.
+Here Action updates Model and View is re-rendered immediately because it observes the state of the Model.
 
 Later MVC was adopted for cilent-server applications and more specifically for HTTP. Some of the HTTP implementations were completely wrong: 
 
