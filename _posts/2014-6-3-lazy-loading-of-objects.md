@@ -2,7 +2,7 @@
 layout: post
 title: Lazy Loading of Objects
 ---
-Objects should be lazy-loaded with Proxies. It allows client code to be agnostic of whether original object is already loaded or not.
+Objects should be lazy-loaded with Proxies. It allows client code to be agnostic of whether original object is already loaded, or not.
 
 ```php
 <?php
@@ -24,6 +24,6 @@ class Client
 }
 ```
 
-Here Client class does not care if a real Dependency is provided or its Proxy. 
+Here Client class does not care if a real Dependency is provided, or its Proxy. 
 
-Providers are popular for lazy-loading but they make client code know about lazy-loading.
+Providers are popular for lazy-loading, but they make client code know about lazy-loading.
