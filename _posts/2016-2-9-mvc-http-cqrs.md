@@ -11,7 +11,7 @@ Initially it was used in "fat" client applications. Model, View and Controller i
 
 Here Action updates Model and View is re-rendered immediately because it observes the state of the Model.
 
-Later MVC was adopted for cilent-server applications and more specifically for HTTP. Some of the HTTP implementations were completely wrong: 
+Later MVC was adopted for web applications. Some of the HTTP implementations were completely wrong: 
 
 ![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
