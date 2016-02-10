@@ -5,7 +5,7 @@ title: MVC, HTTP, CQRS
 
 MVC (Model-View-Controller) is one of the most well-known and least understood decomposition patterns. 
 
-Initially it was used in "fat" client applications. Model, View and Controller in such applications were all loaded in memory and could interact immediately:
+Initially it was used in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory and could interact immediately:
 
 ![MVC on fat clients](/images/MVC_fat_client.png)
 
