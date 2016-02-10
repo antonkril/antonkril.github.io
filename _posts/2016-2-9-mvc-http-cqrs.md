@@ -5,19 +5,19 @@ title: MVC, HTTP, CQRS
 
 MVC (Model-View-Controller) is one of the most well-known and least understood decomposition patterns. 
 
-Initially it was used in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory and could interact immediately:
+Initially it was used in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory, and could interact immediately:
 
 ![MVC on fat clients](/images/MVC_fat_client.png)
 
-Here Action updates Model and View is re-rendered immediately because it observes the state of the Model.
+Here Action updates Model, and View is re-rendered immediately because it observes the state of the Model.
 
 Later MVC was adopted for web applications. Some of the HTTP implementations were completely wrong: 
 
 ![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
-Notice that state modification and state representation both happen in one request. Also Controller does all the communication. View does not observe Model.
+Notice that state modification and state representation both happen in one request. Also Controller does all the communication. View does not observe Model. This is violation of HTTP protocol.
 
-Many of those, who followed HTTP rules came up with following communication:
+Many of those, who followed HTTP rules, came up with following communication:
 
 ![Wrong implementation of MVC for HTTP](/images/MVC_Server_HTTP_Wrong.png)
 
@@ -39,4 +39,4 @@ If we apply CQRS further, we will separate our business operations infrastructur
 
 ![CQRS applied to web application](/images/MVC_Server_HTTP_CQRS.png)
 
-This approach allows to build more scalable applications. One of the possible furhter evolution options is Event Sourcing.
+This approach allows to build more scalable applications. One of the possible furhter evolution options is Event Sourcing architecture.
