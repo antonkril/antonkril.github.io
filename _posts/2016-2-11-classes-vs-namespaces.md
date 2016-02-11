@@ -22,7 +22,7 @@ class UserController
 }
 ```
 
-Methods in the class are not connected. They represent alternative scenarios, and will not be called together in one scenario normally.
+Methods in the class are not connected. They represent alternative scenarios, and will not be called together in one scenario.
 
 Such usage of classes is incorrect. If there is need to group such functions, namespaces should be used:
 
