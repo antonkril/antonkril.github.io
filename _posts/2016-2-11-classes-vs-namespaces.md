@@ -10,14 +10,14 @@ Often classes are used as namespaces for functions:
 
 class UserController
 {
-  public function listAction()
+  public function viewAction()
   {
-    // List users
+    // Show user
   }
   
-  public function deleteAction()
+  public function removeAction()
   {
-    // Delete user
+    // Remove user
   }
 }
 ```
@@ -30,14 +30,14 @@ If there is need to group such functions, namespaces should be used:
 <?php
 namespace User;
 
-function list()
+function view()
 {
-  // List user
+  // View user
 }
 
-function delete()
+function remove()
 {
-  // Delete user
+  // Remove user
 }
 ```
 
@@ -47,14 +47,14 @@ If you need to represent operations, but, for some reason, only objects are allo
 <?php 
 namespace User;
 
-class List
+class View
 {
   public function __invoke() // or execute()
   {
   }
 }
 
-class Delete
+class Remove
 {
   public function __invoke()
   {
