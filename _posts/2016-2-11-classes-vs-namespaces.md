@@ -41,7 +41,7 @@ function remove()
 }
 ```
 
-If you need to represent operations, but, for some reason, only objects are allowed, classes with one method (commands) should be used:
+If you need to represent operations, but, for some reason, only objects are allowed, classes with one method (commands) can be used:
 
 ```php
 <?php 
