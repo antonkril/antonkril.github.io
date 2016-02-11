@@ -6,6 +6,8 @@ title: Classes VS Namespaces
 Often classes are used as namespaces for functions:
 
 ```php
+<?php
+
 class UserController
 {
   public function listAction()
@@ -25,6 +27,8 @@ Methods in the class are not connected. They represent alternative scenarios, an
 Such usage of classes is incorrect. If there is need to group such functions, namespaces should be used:
 
 ```php
+<?php
+
 namespace User;
 
 function list()
