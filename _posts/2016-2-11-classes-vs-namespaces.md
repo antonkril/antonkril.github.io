@@ -28,7 +28,6 @@ Such usage of classes is incorrect. If there is need to group such functions, na
 
 ```php
 <?php
-
 namespace User;
 
 function list()
