@@ -15,7 +15,7 @@ Later MVC was adopted for web applications. Some of the HTTP implementations wer
 
 ![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
-Notice that state modification and state representation both happen in one request. Also Controller does all the communication. View does not observe Model. This is violation of HTTP protocol.
+Notice that state modification and state representation both happen in one request. This is violation of HTTP protocol. Also Controller does all the communication. View does not observe Model. 
 
 Many of those, who followed HTTP rules, came up with following communication:
 
@@ -27,7 +27,7 @@ If we remove Controller from data retrieval request, we will come up with diagra
 
 ![Correct implementation of MVC for HTTP](/images/MVC_Server_HTTP.png)
 
-This implementation of MVC is correct:
+Such implementation of MVC is correct:
 
  - Controller only does state modification
  - View only does state representation
