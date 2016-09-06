@@ -5,11 +5,15 @@ title: MVC, HTTP, CQRS
 
 MVC (Model-View-Controller) is one of the most well-known and least understood decomposition patterns. 
 
-Initially it was used in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory, and could interact immediately:
+Initially it was used in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory, and could interact immediately. Important thing about MVC was that all three components were completely decoupled and every component knows about only one other component: Controller knows about Model, Model knows about View, View declares user actions that trigger Controller Actions. 
 
 ![MVC on fat clients](/images/MVC_fat_client.png)
 
-Here Action updates Model, and View is re-rendered immediately because it observes the state of the Model.
+This is how original (correct) MVC interaction in fat clients works:
+* User clicks on button in UI, which triggers Controller action
+* Controller action triggers some business logic on model Model, Model changes it's state
+* Since View *observes* Model, it's automatically rerendered
+* User sees new UI
 
 Later MVC was adopted for web applications. Some of the HTTP implementations were completely wrong: 
 
