@@ -12,7 +12,7 @@ Initially it was used in "fat" client applications. Model, View, and Controller 
 This is how original (correct) MVC interaction in fat clients works:
 * User clicks on button in UI, which triggers Controller action
 * Controller action triggers some business logic on model Model, Model changes it's state
-* Since View *observes* Model, it's automatically re-rendered
+* Since View *observes* Model, it is automatically re-rendered
 * User sees new UI 
 
 Such simple design had following benefits:
