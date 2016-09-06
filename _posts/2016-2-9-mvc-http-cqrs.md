@@ -10,24 +10,24 @@ Initially it was used in "fat" client applications. Model, View, and Controller 
 ![MVC on fat clients](/images/MVC_fat_client.png)
 
 This is how original (correct) MVC interaction in fat clients works:
-* User clicks on button in UI, which triggers Controller action
-* Controller action triggers some business logic on model Model, Model changes it's state
-* Since View *observes* Model, it is automatically re-rendered
-* User sees new UI 
+- User clicks on button in UI, which triggers Controller action
+- Controller action triggers some business logic on model Model, Model changes it's state
+- Since View *observes* Model, it is automatically re-rendered
+- User sees new UI 
 
 Such simple design had following benefits:
-* Presentation Layer (View and Controller) is separate from business logic (Model)
-* Model does not know anything about its presentation
-* Controller does not know anyting about View, it only interprets user input and passes it to Model.
-* CQRS (Command Query Responsibility Segregation) principle is followed: state-modifying infrastructure (Controller) is different from state-receiving infrastructure (View), their complexity can be managed separately.
+- Presentation Layer (View and Controller) is separate from business logic (Model)
+- Model does not know anything about its presentation
+- Controller does not know anyting about View, it only interprets user input and passes it to Model.
+- CQRS (Command Query Responsibility Segregation) principle is followed: state-modifying infrastructure (Controller) is different from state-receiving infrastructure (View), their complexity can be managed separately.
 
 Later MVC was adopted for web applications. Some of the web-framework implementations were completely wrong: 
 
 ![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
 There are couple problems with such implementeation:
-* state modification and state representation both happen in one web request. This is violation of HTTP protocol.
-* Controller does all the communication. It knows about both Model and View. It violates CQRS and combines complexity of View and Controller.
+- state modification and state representation both happen in one web request. This is violation of HTTP protocol.
+- Controller does all the communication. It knows about both Model and View. It violates CQRS and combines complexity of View and Controller.
 
 By design, HTTP protocol follows CQRS principle: commands (POST, PUT, DELETE) must be separate from queries (GET). So if we'll follow HTTP, we will follow CQRS on communication layer:
 
