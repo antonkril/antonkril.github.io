@@ -26,4 +26,4 @@ class Client
 
 Here Client class does not care if a real Dependency is provided, or its Proxy. 
 
-Providers are popular for lazy-loading, but they make client code know about lazy-loading.
+Providers are popular for lazy loading, but they make client code know about lazy-loading.
