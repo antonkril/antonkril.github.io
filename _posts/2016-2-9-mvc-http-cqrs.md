@@ -3,55 +3,53 @@ layout: post
 title: MVC, HTTP, CQRS
 ---
 
-MVC (Model-View-Controller) is one of the most well-known and least understood decomposition patterns. 
+MVC (Model-View-Controller) is one of the most well-known and least-understood decomposition patterns. 
 
-Initially it was used in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory, and could interact immediately: 
+The MVC approach was introduced in "fat" client applications. Model, View, and Controller in such applications were all loaded in memory and could interact immediately:
 
 ![MVC on fat clients](/images/MVC_fat_client.png)
 
-This is how original (correct) MVC interaction in fat clients works:
-
-- User clicks on button in UI, which triggers Controller action
-- Controller action triggers some business logic on model Model, Model changes it's state
+- User clicks on a button in UI, which triggers Controller action
+- Controller action calls business logic on Model, Model changes its state
 - Since View *observes* Model, it is automatically re-rendered
-- User sees new UI 
+- User sees the new UI 
 
-Such simple design had following benefits:
+The design had the following benefits:
 
-- Presentation Layer (View and Controller) is separate from business logic (Model)
-- Model does not know anything about its presentation
-- Controller does not know anyting about View, it only interprets user input and passes it to Model.
-- CQRS (Command Query Responsibility Segregation) principle is followed: state-modifying infrastructure (Controller) is different from state-receiving infrastructure (View), their complexity can be managed separately.
+- The presentation Layer (View and Controller) is separate from the business logic (Model)
+- Model knows nothing about its presentation
+- Controller knows nothing about View. It only interprets user input and passes it to the Model.
+- It follows the CQRS (Command Query Responsibility Segregation) principle: state-modifying infrastructure (Controller) is different from state-receiving infrastructure (View). Their complexity is separated.
 
-Later MVC was adopted for web applications. Some of the web-framework implementations were completely wrong: 
+Later web applications adopted the MVC approach. But some of the web frameworks implemented it differently: 
 
 ![Completely wrong implementation of MVC on server](/images/MVC_Server_HTTP_Completely_Wrong.png)
 
-There are couple problems with such implementeation:
+There are a couple of problems with such implementation:
 
-- state modification and state representation both happen in one web request. This is violation of HTTP protocol.
-- Controller does all the communication. It knows about both Model and View. It violates CQRS and combines complexity of View and Controller.
+- state modification and state representation both happen in one web request. It is a violation of the HTTP protocol.
+- Controller does all the communication. It knows about both models and views. It violates CQRS and combines the complexity of both the View and Controller.
 
-By design, HTTP protocol follows CQRS principle: commands (POST, PUT, DELETE) must be separate from queries (GET). So if we'll follow HTTP, we will follow CQRS on communication layer:
+By design, HTTP protocol follows the CQRS principle: commands (POST, PUT, DELETE) must be separate from queries (GET). So if we follow HTTP, we will follow CQRS on the communication layer:
 
 ![Wrong implementation of MVC for HTTP](/images/MVC_Server_HTTP_Wrong.png)
 
-Here data retrieval request (GET) is separated from data modification (POST), but Controller is still an entry point for both, which is violation of CQRS on application level. Most modern web frameworks are built this way.
+Here data retrieval request (GET) is separated from data modification (POST), but Controller is still an entry point for both violating the CQRS principle on the application level. A lot of modern web frameworks are built this way.
 
-To build a proper client-server MVC, one simple step is needed: remove Controller from data retrieval request.
+One simple step is needed to build a proper client-server MVC: remove the Controller from the data retrieval request.
 
 ![Correct implementation of MVC for HTTP](/images/MVC_Server_HTTP.png)
 
-You can see that this diagram is almost identical to initial correct fat-client MVC diagram. Such implementation of MVC is correct:
+You can see that this diagram is almost identical to the initial correct fat-client MVC diagram:
 
  - Controller only does state modification.
  - View only does state representation.
- - Both respond to request directly.
+ - Both respond to the request directly.
 
-We can see that both MVC and HTTP follow CQRS principle.
+Both MVC and HTTP follow the CQRS principle.
 
 If we apply CQRS further, we will separate our business operations infrastructure from reporting:
 
 ![CQRS applied to web application](/images/MVC_Server_HTTP_CQRS.png)
 
-This approach allows to build more scalable applications. One of the possible furhter evolution options is Event Sourcing architecture.
+One of the evolution branches of the CQRS principle is Event Sourcing architecture.
