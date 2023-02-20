@@ -2,9 +2,10 @@
 layout: post
 title: Method Chaining
 ---
-Method chaining must be discouraged as a clear sign of bad design and usage of mutable objects.
 
-Many frameworks recommend returning objects from state-modifying methods (especially `$this` from setters) to allow chaining of method calls:
+Method chaining must be discouraged. It is usually a sign of bad design, mutable objects, temporal coupling, and non-atomic initialization.
+
+Many frameworks recommend returning objects from state-modifying methods (especially `$this` from setters) to allow the chaining of method calls:
 
 ```php
 <?php
@@ -41,4 +42,4 @@ $items = $collection->addNameFilter('test *')->getItems();
 $filteredItems = $collection->addDateFilter(today())->getItems();
 ```
 
-Example above demonstrates problems with mutable state: second call to `addDateFilter` will not have effect. Client could not know the state of `$collection` at the moment of call to `addDateFilter`. To avoid such situations, all objects must be initialized at creation.
+The example above demonstrates one of the problems with the mutable state highlighted by method chaining API. The second call to `addDateFilter` will not have an effect because the client could not know the state of `$collection` at the moment of the call to `addDateFilter`. Objects must be initialized atomically at creation to avoid situations like this.
