@@ -12,4 +12,4 @@ It is common wisdom that behavior duplication should be avoided in most cases. T
 4. Extract to a dependency (Composition). Move the duplicated behavior to a separate object. The object can then be used in any client (no hierarchical relation limitation). This approach allows customization and substitution of the extracted behavior in runtime.
 5. Extract to a Facade. Only available when all clients of the extracted behavior share a single facade.
 
-Only #4 & #5 should be used for the application to support extensibil
+Only #4 & #5 should be used for the application to be extensible.
