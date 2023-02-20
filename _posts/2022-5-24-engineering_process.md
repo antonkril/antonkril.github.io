@@ -5,8 +5,8 @@ title: Engineering Process
 
 ## Dev Environments
 
-1. Local development environment SHOULD be as close as possible to production environment
-1. Every service MUST be containerized. Dockerfile should be stored in service repository
+1. Local development environment SHOULD be as close as possible to the production environment
+1. Every service MUST be containerized. Dockerfile should be stored in the service repository
 
 ## Repositories
 
@@ -15,14 +15,14 @@ title: Engineering Process
    - Code purpose
    - Usage examples
    - Configuration options
-   - For repositories contaning services - installation steps
+   - For repositories containing services - installation steps
 1. Every repository containing a service should have Dockerfile recreating the production environment for the service
-1. Libraries should only be extracted to separate repositories if they are used by more than one service
+1. Libraries should only be extracted to separate repositories if they are used by more than one service. Sidecar services should be preferred to shared libraries.
 
 ## Migrations
 
 1. Every significant refactoring that requires a whole-system migration MUST start with a design document shared with the team.
-1. Every code migration should start by adding a rule/lint that forces all new code to be written in the new way
+1. Every code migration should start by adding a rule/lint that forces all new code to be written in a new way
 
 ## Artifacts
 
