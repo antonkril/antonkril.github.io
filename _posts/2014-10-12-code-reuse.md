@@ -2,15 +2,14 @@
 layout: post
 title: Code reuse
 ---
-
-When behavior duplication occurs, that behavior should be extracted and reused. Possible behavior extraction directions are following:
+It is common wisdom that behavior duplication should be avoided in most cases. The duplicated behavior should be extracted and reused. There are the following behavior extraction approaches available in the object-oriented paradigm:
 
 ![Behavior extraction directions](/images/code-reuse.png)
 
-1. Private method within class. Can only be used if behavior duplication occurs within same class. Easiest option, but prevents customizations.
-2. Inheritance. Move duplicated behavior to method in parent class and reuse within all children. Can only be used for behavior reuse within logically connected objects. Has all problems of inheritance: publication of protected api, hard-code of class dependency (limits customizations)
-3. Trait. Similar to inheritance, but does not have limitation of logicaly related clients. Also hard-codes dependency on specific trait and prevents customization of reused behavior.
-4. Extracted Interface Dependency. Behavior is moved to extracted object. That object can be reused in any client (no logical relation limitation). This approach allows customization and substitution of extracted behavior. Only downside is that new dependency is added to constructor of every client.
-5. Facade. Only available when all clients of extracted behavior share facade, and that behavior must be executed for every client.
+1. Extract to a private method within the class. You can only use this if behavior duplication occurs within one class. It is the easiest option, but it prevents customizations of the extracted code since it is being moved to a private method.
+2. Extract to a method in a parent class and reuse in all children. You can only use it within hierarchically linked objects. It has all problems of inheritance: publication of protected class API, static linking (parent class name is hard-coded in child classes), and limited customizability (you can't substitute the extracted behavior in a polymorphic way
+3. Extract to a Mixin or a Trait (for PHP). Similar to inheritance, but does not have the limitation of logically related clients. It also has the problem of static linking.
+4. Extract to a dependency (Composition). Move the duplicated behavior to a separate object. The object can then be used in any client (no hierarchical relation limitation). This approach allows customization and substitution of the extracted behavior in runtime.
+5. Extract to a Facade. Only available when all clients of the extracted behavior share a single facade.
 
-For code that is supposed to be customized only #4 & #5 should be used.
+Only #4 & #5 should be used for the application to support extensibil
