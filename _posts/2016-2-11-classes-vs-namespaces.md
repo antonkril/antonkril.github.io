@@ -3,7 +3,7 @@ layout: post
 title: Classes VS Namespaces
 ---
 
-Many PHP frameworks use classes as namespances for functions. The most widespread example is Controller classes:
+Many PHP frameworks use classes as namespaces for functions. The most widespread example is the Controller class:
 
 ```php
 <?php
@@ -22,12 +22,12 @@ class UserController
 }
 ```
 
-Acthion methods in such class are not related:
+Action methods in this class are not related:
 
 * they don't share state
-* they represent alternative scenarios, and will not be called together in one scenario (single HTTP Request).
+* they represent alternative scenarios and will not be called together in one scenario (single HTTP Request).
 
-If there is need to group such functions, namespaces should be used:
+If there is a need to group such functions, namespaces should be used instead:
 
 ```php
 <?php
@@ -44,7 +44,7 @@ function remove()
 }
 ```
 
-If you need to represent operations, but, for some reason, only objects are allowed, classes with one method (commands) can be used:
+If you need to represent operations but, for some reason (convention), only objects are allowed, you can use classes with a single method (commands):
 
 ```php
 <?php 
